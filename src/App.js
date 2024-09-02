@@ -2,15 +2,15 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Card from "./pages/Card";
 
 import "./scss/app.scss";
-import Card from "./components/Card";
 
 function App() {
   return (
     <div className="wrapper">
-      <Header />
       <BrowserRouter>
+        <Header />
         <div className="content">
           <Routes>
             <Route index element={<Home />} />
