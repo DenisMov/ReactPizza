@@ -1,4 +1,4 @@
-@import "./../variables";
+@import "../variables";
 
 .button {
   display: inline-block;
@@ -46,11 +46,11 @@
   }
 
   &--black {
-    background-color: #232323;
+    background-color: $black;
 
     &:hover,
     &:active {
-      background-color: lighten($color: #232323, $amount: 10);
+      background-color: lighten($color: $black, $amount: 10);
     }
   }
 
