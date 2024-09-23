@@ -8,3 +8,4 @@ export { default as Pagination } from "./Pagination/Pagination";
 export { default as NotFoundBlock } from "./NotFoundBlock/NotFoundBlock";
 export { default as SortPopup } from "./SortPopup";
 export { default as CartEmpty } from "./CartEmpty";
+export { default as sortItems } from "./SortPopup";

@@ -99,7 +99,7 @@ const Cart: React.FC = () => {
               />
             </svg>
 
-            <span>Очистить корзину</span>
+            <span>Очистити корзину</span>
           </div>
         </div>
         <div className="content__items">
@@ -110,12 +110,10 @@ const Cart: React.FC = () => {
         <div className="cart__bottom">
           <div className="cart__bottom-details">
             <span>
-              {" "}
-              Всего пицц: <b>{totalCount} шт.</b>{" "}
+              Всього піц: <b>{totalCount} шт.</b>
             </span>
             <span>
-              {" "}
-              Сумма заказа: <b>{totalPrice} грн.</b>{" "}
+              Сума замовлення: <b>{totalPrice} грн.</b>
             </span>
           </div>
           <div className="cart__bottom-buttons">
@@ -139,10 +137,10 @@ const Cart: React.FC = () => {
                 />
               </svg>
 
-              <span>Вернуться назад</span>
+              <span>Повернутись назад</span>
             </a>
             <div className="button pay-btn">
-              <span>Оплатить сейчас</span>
+              <span>Сплатити зараз</span>
             </div>
           </div>
         </div>

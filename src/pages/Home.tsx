@@ -36,6 +36,8 @@ const Home: React.FC = () => {
     dispatch(setCurrentPage(page));
   };
 
+  console.log(currentPage);
+
   const onClickCategory = useCallback((id: number) => {
     dispatch(setCategoryId(id));
   }, []);
@@ -56,28 +58,33 @@ const Home: React.FC = () => {
     );
     window.scrollTo(0, 0);
   };
-  // Якщо змінили параметри і був перший ренедер - спрацьовує
+
   useEffect(() => {
-    // if (isMounted.current) {
-    //   const params = {
-    //     sortProperty: sort.sortProperty,
-    //     categoryId: categoryId > 0 ? categoryId : null,
-    //     currentPage,
-    //   };
-    //   const queryString = qs.stringify(params);
-    //   navigate(`?${queryString}`);
-    // }
-
-    // if (window.location.search) {
-    //   dispatch(fetchPizzas({} as SearchPizzaParams));
-    // }
-
     getPizzas();
-
-    // isMounted.current = true;
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
+  // Якщо змінили параметри і був перший ренедер - спрацьовує
+
+  // useEffect(() => {
+  // if (isMounted.current) {
+  //   const params = {
+  //     sortProperty: sort.sortProperty,
+  //     categoryId: categoryId > 0 ? categoryId : null,
+  //     currentPage,
+  //   };
+  //   const queryString = qs.stringify(params);
+  //   navigate(`?${queryString}`);
+  // }
+
+  // if (window.location.search) {
+  //   dispatch(fetchPizzas({} as SearchPizzaParams));
+  // }
+
+  // isMounted.current = true;
+  // }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+
   // Пояснення для себе, якщо був перший рендер, то перевіряється ЮРЛ параметри і зберігаються в редаксі
+
   // useEffect(() => {
   //   if (window.location.search) {
   //     const params = qs.parse(
@@ -102,7 +109,7 @@ const Home: React.FC = () => {
   const pizzas = items.map((pizza: any) => (
     <PizzaBlock key={pizza.id} {...pizza} />
   ));
-  const skeletons = [...new Array(6)].map((_, index) => (
+  const skeletons = [...new Array(4)].map((_, index) => (
     <Skeleton key={index} />
   ));
 
@@ -115,7 +122,6 @@ const Home: React.FC = () => {
         />
         <SortPopup value={sort} />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
       {status === "error" ? (
         <div className="content__error-info">
           <p>
@@ -124,9 +130,13 @@ const Home: React.FC = () => {
           </p>
         </div>
       ) : (
-        <div className="content__items">
-          {status === "loading" ? skeletons : pizzas}
-        </div>
+        <>
+          <h2 className="content__title">Всі піцци</h2>
+
+          <div className="content__items">
+            {status === "loading" ? skeletons : pizzas}
+          </div>
+        </>
       )}
 
       <Pagination currentPage={currentPage} onChangePage={onChangePage} />

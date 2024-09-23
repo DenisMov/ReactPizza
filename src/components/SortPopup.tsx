@@ -15,9 +15,9 @@ type SortPopupProps = {
 };
 
 export const sortItems: SortItem[] = [
-  { name: "популярностю", sortProperty: SortPropertyEnum.RATING_DESC },
+  { name: "популярністю", sortProperty: SortPropertyEnum.RATING_DESC },
   { name: "ціною", sortProperty: SortPropertyEnum.PRICE_DESC },
-  { name: "алфавітом", sortProperty: SortPropertyEnum.TITLE_DESC },
+  { name: "алфавітом", sortProperty: SortPropertyEnum.TITLE_ASC },
 ];
 
 const SortPopup: React.FC<SortPopupProps> = memo(({ value }) => {
@@ -35,18 +35,18 @@ const SortPopup: React.FC<SortPopupProps> = memo(({ value }) => {
     [dispatch]
   );
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (sortRef.current && !e.composedPath().includes(sortRef.current)) {
-        setIsOpen(false);
-      }
-    };
-    document.body.addEventListener("click", handleClickOutside);
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (sortRef.current && !e.composedPath().includes(sortRef.current)) {
+      setIsOpen(false);
+    }
+  }, []);
 
+  useEffect(() => {
+    document.body.addEventListener("click", handleClickOutside);
     return () => {
       document.body.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [handleClickOutside]);
 
   return (
     <div ref={sortRef} className="sort">
@@ -69,9 +69,9 @@ const SortPopup: React.FC<SortPopupProps> = memo(({ value }) => {
       {isOpen && (
         <div className="sort__popup">
           <ul>
-            {sortItems.map((obj, id) => (
+            {sortItems.map((obj) => (
               <li
-                key={id}
+                key={obj.sortProperty}
                 onClick={() => onClickItem(obj)}
                 className={
                   value.sortProperty === obj.sortProperty ? "active" : ""

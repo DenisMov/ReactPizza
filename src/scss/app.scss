@@ -22,6 +22,7 @@ body {
 }
 
 .content {
+  min-height: 70vh;
   padding: 40px 0;
 
   &__error-info {
@@ -121,6 +122,48 @@ body {
   }
 }
 
+.loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  padding: 6px;
+  background: conic-gradient(from 135deg at top, currentColor 90deg, #0000 0) 0
+      calc(50% - 4px) / 17px 8.5px,
+    radial-gradient(
+        farthest-side at bottom left,
+        #0000 calc(100% - 6px),
+        currentColor calc(100% - 5px) 99%,
+        #0000
+      )
+      top right/50% 50% content-box content-box,
+    radial-gradient(
+        farthest-side at top,
+        #0000 calc(100% - 6px),
+        currentColor calc(100% - 5px) 99%,
+        #0000
+      )
+      bottom / 100% 50% content-box content-box;
+  background-repeat: no-repeat;
+  animation: l11 1s infinite linear;
+}
+
+@keyframes l11 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
 .cart {
   &__top {
     display: flex;
@@ -130,68 +173,68 @@ body {
 
   &__product-card {
     display: grid;
-    grid-template-columns: 1fr 2fr; // Дві колонки: 1 частина для зображення, 2 частини для тексту
+    grid-template-columns: 1fr 2fr;
     grid-template-areas:
       "image info"
-      "image button"; // Кнопка буде під текстом, але поруч із зображенням
+      "image button";
     max-width: 900px;
     margin: 30px auto;
     padding: 20px;
-    gap: 20px; // Відступ між елементами
+    gap: 20px;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Додаємо тінь для об'єму
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
+  }
+  &__product-image {
+    grid-area: image;
+    align-self: center;
 
-    .product-image {
-      grid-area: image;
-      align-self: center; // Вирівнюємо зображення по центру по вертикалі
-
-      img {
-        width: 100%;
-        border-radius: 12px;
-        object-fit: cover; // Зображення не буде деформованим
-      }
+    img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
     }
-
-    .product-info {
-      grid-area: info;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-
-      .price {
-        font-size: 26px;
-        font-weight: bold;
-        color: #2e7d32; // Зелений колір для ціни
-        margin-bottom: 10px;
-      }
-
-      .description {
-        font-size: 16px;
-        line-height: 1.5;
-        color: #424242; // Темно-сірий для тексту
-        margin-bottom: 20px;
-      }
+  }
+  &__back {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 20px;
+    a {
+      margin-right: 60px;
+      text-align: end;
     }
-
-    .back-button {
-      grid-area: button;
-      align-self: flex-start; // Кнопка вирівняна по лівому краю
-      padding: 12px 24px;
-      background-color: #ff5722;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
+    h4 {
+      text-align: end;
       font-weight: bold;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+      font-size: 22px;
+      line-height: 27px;
+      letter-spacing: 0.015em;
+    }
+  }
 
-      &:hover {
-        background-color: #e64a19;
-      }
+  &__product-info {
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .price {
+      font-size: 26px;
+      font-weight: bold;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 27px;
+      font-weight: 700;
+    }
+    .description {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #424242;
+      margin-bottom: 20px;
     }
   }
 

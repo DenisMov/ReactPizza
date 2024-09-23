@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import Seacrh from "./Search/Search";
 import { selectCart } from "../redux/cart/selectors";
+import Search from "./Search/Search";
 
 function Header() {
   const { items, totalPrice } = useSelector(selectCart);
@@ -34,7 +35,8 @@ function Header() {
             </div>
           </div>
         </Link>
-        {location.pathname !== "/cart" && <Seacrh />}
+        {location.pathname !== "/cart" &&
+          !location.pathname.includes("/pizza/") && <Search />}
         <div className="header__cart">
           {location.pathname !== "/cart" && (
             <Link to="cart">
