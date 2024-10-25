@@ -36,8 +36,6 @@ const Home: React.FC = () => {
     dispatch(setCurrentPage(page));
   };
 
-  console.log(currentPage);
-
   const onClickCategory = useCallback((id: number) => {
     dispatch(setCategoryId(id));
   }, []);
