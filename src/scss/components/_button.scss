@@ -147,3 +147,49 @@
     }
   }
 }
+@media (min-width: 768px) and (max-width: 991px) {
+  .button {
+    &--cart {
+      padding: 8px 22px;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .button {
+    border-radius: 20px;
+    &__delimiter {
+      width: 100%; /* Якщо необхідно, щоб delimiter займав весь рядок */
+      height: 1px;
+      margin: 0; /* Знімаємо додаткові відступи */
+    }
+    &--cart {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      row-gap: 3px;
+      padding: 1px 22px;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .button {
+    border-radius: 20px;
+    &__delimiter {
+      width: 100%;
+      height: 1px;
+      margin: 0;
+    }
+    &--cart {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto;
+      row-gap: 3px;
+      padding: 6px 0px;
+      line-height: 10px;
+      text-align: center;
+    }
+  }
+}
