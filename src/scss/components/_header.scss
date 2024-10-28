@@ -15,6 +15,9 @@
 
     img {
       margin-right: 15px;
+      @media (max-width: 575px) {
+        margin-right: 3px;
+      }
     }
 
     h1 {
@@ -107,7 +110,7 @@
   .Search_root__XcEei {
     left: 0;
     input {
-      width: 119px;
+      width: 117px;
     }
   }
 }
@@ -117,7 +120,8 @@
     padding: 10px 0;
     &__logo {
       h1 {
-        display: none;
+        width: 50px;
+        font-size: 17px;
       }
       p {
         display: none;
@@ -130,7 +134,31 @@
   .Search_root__XcEei {
     left: 0;
     input {
-      width: 60px;
+      width: 95px;
+    }
+    svg {
+      display: none;
+    }
+  }
+  .Search_input__EbP5E {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 350px) {
+  .header {
+    padding: 10px 0;
+    &__logo {
+      margin-left: 15px;
+      h1 {
+        display: none;
+      }
+      p {
+        display: none;
+      }
+    }
+    &__cart {
+      margin-top: 0;
     }
   }
 }

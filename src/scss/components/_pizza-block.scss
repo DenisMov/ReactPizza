@@ -17,6 +17,9 @@
 
   &__image {
     width: 260px;
+    @media (max-width: 575px) {
+      width: 220px;
+    }
   }
 
   &__title {
@@ -63,6 +66,16 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
+    @media (max-width: 575px) {
+      justify-content: space-around;
+    }
+    @media (max-width: 350px) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
   }
 
   &__price {
