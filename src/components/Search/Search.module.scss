@@ -38,3 +38,54 @@
     opacity: 0.8;
   }
 }
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .root {
+    left: 0;
+    input {
+      width: 30vw;
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .root {
+    left: 0;
+    input {
+      width: 25vw;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .root {
+    left: 0;
+    input {
+      width: 170px;
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .root {
+    left: 0;
+    input {
+      width: 117px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .root {
+    left: 0;
+    input {
+      width: 95px;
+    }
+    svg {
+      display: none;
+    }
+  }
+  .input {
+    padding-left: 20px;
+  }
+}

@@ -3,12 +3,24 @@
   max-width: 750px;
   margin: 0 auto;
   text-align: center;
-
+  @media (max-width: 575px) {
+    padding: 100px 10px;
+    h1 {
+      font-size: 35px;
+    }
+  }
   span {
     font-size: 64px;
+    @media (max-width: 575px) {
+      font-size: 30px;
+    }
   }
 }
 
 .description {
   font-size: 22px;
+  @media (max-width: 575px) {
+    margin-top: 15px;
+    font-size: 15px;
+  }
 }
