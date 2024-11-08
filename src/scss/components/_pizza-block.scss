@@ -17,9 +17,12 @@
 
   &__image {
     width: 260px;
-    @media (max-width: 575px) {
-      width: 220px;
-    }
+    // @media (max-width: 575px) {
+    //   width: 200px;
+    // }
+    // @media (max-width: 575px) {
+    //   width: 220px;
+    // }
   }
 
   &__title {
@@ -66,16 +69,16 @@
     align-items: center;
     justify-content: space-between;
     margin-top: 20px;
-    @media (max-width: 575px) {
-      justify-content: space-around;
-    }
-    @media (max-width: 350px) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 20px;
-      gap: 10px;
-    }
+    // @media (max-width: 575px) {
+    //   justify-content: space-around;
+    // }
+    // @media (max-width: 350px) {
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   margin-top: 20px;
+    //   gap: 10px;
+    // }
   }
 
   &__price {
@@ -83,5 +86,43 @@
     font-size: 22px;
     line-height: 27px;
     letter-spacing: 0.015em;
+  }
+}
+@media (max-width: 730px) {
+  .pizza-block {
+    width: 220px;
+    &__bottom {
+      justify-content: space-around;
+    }
+    &__image {
+      width: 200px;
+    }
+    &__price {
+      font-size: 20px;
+    }
+  }
+  .button--add {
+    span {
+      font-size: 14px;
+    }
+    i {
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+    }
+    svg {
+      width: 8px;
+    }
+  }
+}
+@media (max-width: 350px) {
+  .pizza-block {
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
   }
 }
