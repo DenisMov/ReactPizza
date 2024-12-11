@@ -233,8 +233,8 @@ body {
     background-color: #fff;
     @media (max-width: 575px) {
       display: grid;
-      grid-template-columns: 1fr; // одна колонка по ширині
-      grid-template-rows: auto auto auto; // три рядки для контенту
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
       grid-template-areas:
         "image"
         "info"

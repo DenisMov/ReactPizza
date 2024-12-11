@@ -57,6 +57,7 @@ const CartItemBlock: React.FC<CartItemProps> = ({
           disabled={count === 1}
           onClick={onClickMinus}
           className="button button--outline button--circle cart__item-count-minus"
+          aria-label="minus"
         >
           <svg
             width="10"
@@ -105,6 +106,7 @@ const CartItemBlock: React.FC<CartItemProps> = ({
         <button
           onClick={onClickRemove}
           className="button button--outline button--circle"
+          aria-label="remove"
         >
           <svg
             width="10"

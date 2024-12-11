@@ -19,17 +19,23 @@ const pizzaSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchPizzas.pending, (state) => {
-        console.log("Йде відправка");
+        if (process.env.NODE_ENV === "development") {
+          console.log("Йде відправка");
+        }
         state.status = Status.LOADING;
         state.items = [];
       })
       .addCase(fetchPizzas.fulfilled, (state, action) => {
-        console.log("Все ок");
+        if (process.env.NODE_ENV === "development") {
+          console.log("Все ок");
+        }
         state.items = action.payload;
         state.status = Status.SUCCESS;
       })
       .addCase(fetchPizzas.rejected, (state) => {
-        console.log("Відбулась помилка");
+        if (process.env.NODE_ENV === "development") {
+          console.log("Відбулась помилка");
+        }
         state.status = Status.ERROR;
         state.items = [];
       });

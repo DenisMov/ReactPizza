@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, CartItem, selectCartItemById } from "../redux";
+import { useDispatch } from "react-redux";
+
+import { addItem, CartItem } from "../redux";
 
 const typeNames = ["тонке", "традиційне"];
 const sizes = [26, 30, 40];
@@ -32,7 +33,6 @@ const FullPizza: React.FC = () => {
       size: sizes[activeIndexSize],
       count: 0,
     };
-    console.log(item);
     dispatch(addItem(item));
   };
 
@@ -53,7 +53,7 @@ const FullPizza: React.FC = () => {
 
   if (!pizza) {
     return (
-      <div className="loader-wrapper">
+      <div className="loader-wrapper" data-testid="loader">
         <div className="loader"></div>
       </div>
     );
@@ -102,6 +102,3 @@ const FullPizza: React.FC = () => {
 };
 
 export default FullPizza;
-// function dispatch(arg0: any) {
-//   throw new Error("Function not implemented.");
-// }

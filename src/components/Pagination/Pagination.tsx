@@ -16,6 +16,7 @@ const Pagination: React.FC<PaginatioProps> = ({
     <div>
       <ReactPaginate
         className={styles.root}
+        activeClassName="selected"
         breakLabel="..."
         nextLabel=">"
         onPageChange={(e) => onChangePage(e.selected + 1)}

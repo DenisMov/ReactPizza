@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import qs from "qs";
 
 import { useAppDispatch } from "../redux/store";
 import {
@@ -61,49 +60,6 @@ const Home: React.FC = () => {
     getPizzas();
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
 
-  // Якщо змінили параметри і був перший ренедер - спрацьовує
-
-  // useEffect(() => {
-  // if (isMounted.current) {
-  //   const params = {
-  //     sortProperty: sort.sortProperty,
-  //     categoryId: categoryId > 0 ? categoryId : null,
-  //     currentPage,
-  //   };
-  //   const queryString = qs.stringify(params);
-  //   navigate(`?${queryString}`);
-  // }
-
-  // if (window.location.search) {
-  //   dispatch(fetchPizzas({} as SearchPizzaParams));
-  // }
-
-  // isMounted.current = true;
-  // }, [categoryId, sort.sortProperty, searchValue, currentPage]);
-
-  // Пояснення для себе, якщо був перший рендер, то перевіряється ЮРЛ параметри і зберігаються в редаксі
-
-  // useEffect(() => {
-  //   if (window.location.search) {
-  //     const params = qs.parse(
-  //       window.location.search.substring(1)
-  //     ) as unknown as SearchPizzaParams;
-
-  //     const sort = sortItems.find(
-  //       (obj) => obj.sortProperty === params.sort
-  //     ) as Sort;
-
-  //     dispatch(
-  //       setFilters({
-  //         searchValue: params.search,
-  //         categoryId: Number(params.category),
-  //         currentPage: Number(params.currentPage),
-  //         sort: sort || sortItems[0],
-  //       })
-  //     );
-  //   }
-  // }, []);
-
   const pizzas = items.map((pizza: any) => (
     <PizzaBlock key={pizza.id} {...pizza} />
   ));
@@ -121,7 +77,7 @@ const Home: React.FC = () => {
         <SortPopup value={sort} />
       </div>
       {status === "error" ? (
-        <div className="content__error-info">
+        <div className="content__error-info" data-testid="error-message">
           <p>
             Схоже, відбулась якась помилка. 😕
             <br /> Спробуйте спробувати ще раз.

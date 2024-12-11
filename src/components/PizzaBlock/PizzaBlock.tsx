@@ -7,7 +7,7 @@ import { CartItem } from "../../redux/cart/types";
 import { addItem } from "../../redux/cart/slice";
 
 type PizzaBlockProps = {
-  id: string;
+  id: number;
   name: string;
   imageUrl: string;
   price: number;
@@ -24,7 +24,7 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({
   types,
 }) => {
   const dispatch = useDispatch();
-  const cartItem = useSelector(selectCartItemById(id));
+  const cartItem = useSelector(selectCartItemById(String(id)));
 
   const [activeIndexType, setActiveIndexType] = useState(0);
   const [activeIndexSize, setActiveIndexSize] = useState(0);
@@ -34,7 +34,7 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({
 
   const onClickAdd = () => {
     const item: CartItem = {
-      id,
+      id: String(id),
       name,
       price,
       imageUrl,
@@ -42,12 +42,13 @@ const PizzaBlock: React.FC<PizzaBlockProps> = ({
       size: sizes[activeIndexSize],
       count: 0,
     };
-    console.log(item);
+    // console.log(item);
     dispatch(addItem(item));
   };
+  // console.log(activeIndexType);
 
   return (
-    <div className="pizza-block">
+    <div className="pizza-block" data-testid="pizza-block">
       <Link key={id} to={`/pizza/${id}`}>
         <img className="pizza-block__image" src={imageUrl} alt="Pizza" />
         <h4 className="pizza-block__title">{name}</h4>

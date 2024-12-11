@@ -28,8 +28,8 @@ const Cart: React.FC = () => {
   return (
     <div className="container container--cart">
       <div className="cart">
-        <div className="cart__top">
-          <h2 className="content__title">
+        <div className="cart__top" data-testid="cart-top">
+          <h2 className="content__title" data-testid="cart-title">
             <svg
               width="18"
               height="18"
@@ -61,7 +61,11 @@ const Cart: React.FC = () => {
             </svg>
             Корзина
           </h2>
-          <div onClick={onClickClear} className="cart__clear">
+          <div
+            onClick={onClickClear}
+            className="cart__clear"
+            data-testid="cart-clear"
+          >
             <svg
               width="20"
               height="20"
@@ -102,13 +106,16 @@ const Cart: React.FC = () => {
             <span>Очистити корзину</span>
           </div>
         </div>
-        <div className="content__items">
+        <div className="content__items" data-testid="cart-items">
           {items.map((item: any) => (
             <CartItem key={item.id} {...item} />
           ))}
         </div>
-        <div className="cart__bottom">
-          <div className="cart__bottom-details">
+        <div className="cart__bottom" data-testid="cart-bottom">
+          <div
+            className="cart__bottom-details"
+            data-testid="cart-bottom-details"
+          >
             <span>
               Всього піц: <b>{totalCount} шт.</b>
             </span>
@@ -116,10 +123,14 @@ const Cart: React.FC = () => {
               Сума замовлення: <b>{totalPrice} грн.</b>
             </span>
           </div>
-          <div className="cart__bottom-buttons">
+          <div
+            className="cart__bottom-buttons"
+            data-testid="cart-bottom-buttons"
+          >
             <a
               href="/"
               className="button button--outline button--add go-back-btn"
+              data-testid="cart-go-back"
             >
               <svg
                 width="8"
@@ -139,7 +150,7 @@ const Cart: React.FC = () => {
 
               <span>Повернутись назад</span>
             </a>
-            <div className="button pay-btn">
+            <div className="button pay-btn" data-testid="cart-pay-btn">
               <span>Сплатити зараз</span>
             </div>
           </div>

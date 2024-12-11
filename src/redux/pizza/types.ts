@@ -1,6 +1,6 @@
 export type SearchPizzaParams = {
-  search: string;
-  category: string;
+  search?: string;
+  category?: string;
   currentPage: string;
   sort: string;
 };

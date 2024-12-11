@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
-import Seacrh from "./Search/Search";
 import { selectCart } from "../redux/cart/selectors";
 import Search from "./Search/Search";
 
@@ -23,8 +22,9 @@ function Header() {
     }
     isMounted.current = true;
   }, [items]);
+
   return (
-    <div className="header">
+    <div className="header" data-testid="header">
       <div className="container">
         <Link to="/">
           <div className="header__logo">

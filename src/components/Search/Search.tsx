@@ -65,16 +65,21 @@ const Search: React.FC = () => {
         />
       </svg>
       <input
+        data-testid="search-input"
         ref={inputRef}
         value={value}
         onChange={onChangeInput}
         className={styles.input}
         placeholder="Пошук піцци..."
       />
+
       {value && (
         <svg
           onClick={onClickClear}
-          className={styles.clearIcon}
+          className={`${styles.clearIcon} static-clear-icon`}
+          data-testid="clear-icon"
+          role="button"
+          aria-label="Clear search input"
           viewBox="0 0 20 20"
           xmlns="http://www.w3.org/2000/svg"
         >

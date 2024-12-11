@@ -7,6 +7,11 @@ import pizza from "./pizza/slice";
 
 export const store = configureStore({
   reducer: { filter, cart, pizza },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+      immutableCheck: false,
+    }),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

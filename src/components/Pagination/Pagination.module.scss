@@ -23,6 +23,8 @@
 
   :global {
     .selected {
+      font-weight: bold;
+      color: red;
       a {
         background-color: #fe5f1e;
         color: #fff;
