@@ -15,11 +15,54 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["node", "jest"],
+    "types": ["node", "jest", "@testing-library/jest-dom", "cypress"],
     "baseUrl": "src",
     "paths": {
       "*": ["*"]
     }
   },
-  "include": ["src", "src/@types"]
+  "include": [
+    "src",
+    "src/@types",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "cypress/e2e/**/*.ts",
+    "cypress/e2e/**/*.tsx"
+  ]
 }
+
+// {
+//   "compilerOptions": {
+//     "target": "es5",
+//     "lib": ["dom", "dom.iterable", "esnext"],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "esModuleInterop": true,
+//     "allowSyntheticDefaultImports": true,
+//     "strict": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "noFallthroughCasesInSwitch": true,
+//     "module": "ESNext",
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//     "isolatedModules": true,
+//     "noEmit": true,
+//     "jsx": "react-jsx",
+//     "types": ["node", "jest", "cypress", "@testing-library/jest-dom"],
+//     "baseUrl": "src",
+//     "paths": {
+//       "*": ["*"]
+//     }
+//   },
+//   "include": [
+//     "src",
+//     "src/@types",
+//     "**/*.ts",
+//     "**/*.tsx",
+//     "**/*.spec.ts",
+//     "src/**/*",
+//     "cypress/e2e/components/notFoundBlock",
+//     "node_modules"
+//   ]
+// }

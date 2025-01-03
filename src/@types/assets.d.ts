@@ -13,6 +13,11 @@ declare module "*.scss" {
   export default content;
 }
 
+declare module "*.module.scss" {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
 declare module "lodash.debounce" {
   const content: any;
   export default content;
