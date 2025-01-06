@@ -12,6 +12,9 @@ type CartItemProps = {
   count: number;
   price: number;
   imageUrl: string;
+  onClickPlus: () => void; // Додаємо пропс для натискання на кнопку плюс
+  onClickMinus: () => void; // Додаємо пропс для натискання на кнопку мінус
+  onClickRemove: () => void;
 };
 
 const CartItemBlock: React.FC<CartItemProps> = ({
@@ -22,24 +25,27 @@ const CartItemBlock: React.FC<CartItemProps> = ({
   count,
   price,
   imageUrl,
+  onClickPlus,
+  onClickMinus,
+  onClickRemove,
 }) => {
   const dispatch = useDispatch();
 
-  const onClickPlus = () => {
-    dispatch(
-      addItem({
-        id,
-      } as CartItem)
-    );
-  };
+  // const onClickPlus = () => {
+  //   dispatch(
+  //     addItem({
+  //       id,
+  //     } as CartItem)
+  //   );
+  // };
 
-  const onClickMinus = () => {
-    dispatch(minusItem(id));
-  };
+  // const onClickMinus = () => {
+  //   dispatch(minusItem(id));
+  // };
 
-  const onClickRemove = () => {
-    dispatch(removeItem(id));
-  };
+  // const onClickRemove = () => {
+  //   dispatch(removeItem(id));
+  // };
 
   return (
     <div className="cart__item">
@@ -78,8 +84,10 @@ const CartItemBlock: React.FC<CartItemProps> = ({
         </button>
         <b>{count}</b>
         <div
+          role="button"
           onClick={onClickPlus}
           className="button button--outline button--circle cart__item-count-plus"
+          aria-label="plus"
         >
           <svg
             width="10"
